@@ -101,7 +101,7 @@ $my_requirements = new Array(
   'minResults' => 3
 );
 
-// Register defaults
+// Register defaults when WordPress loads up
 AdvancedCustomQueries::registerResultSet('Carousel', $my_sequence, $my_requirements);
 ```
 
