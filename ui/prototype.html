@@ -1,0 +1,309 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Advanced Custom Queries</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <style type="text/css">
+
+        </style>
+
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+    <div class="container">
+
+      <h1>Advanced Custom Query Builder</h1>
+
+      <h2>Prototype UI</h2>
+
+      <p class="lead">This UI is an example of what an admin might see in WordPress to create a result set for a sequence of queries.</p>
+
+      <h3>Create New Result Set</h3>
+
+      <br>
+
+      <form>
+        <div role="tabpanel">
+
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#pagination" aria-controls="pagination" role="tab" data-toggle="tab">Result Set</a></li>
+            <li role="presentation"><a href="#strategies" aria-controls="strategies" role="tab" data-toggle="tab">Queries</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="pagination">
+
+              <br>
+
+              <div class="form-group form-inline">
+                <label for="pageSize">Result set name:</label>
+                <input type="text" class="form-control" id="resultSetName" value="Carousel posts">
+              </div>
+
+              <hr>
+
+              <h4>Pagination strategy</h4>
+
+              <div class="radio">
+                <label>
+                  <input type="radio" name="paginationStrategy" id="optionsRadios2" value="option2" checked>
+                  Enable pagination
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="paginationStrategy" id="optionsRadios3" value="option3">
+                  Truncate results (show only first page)
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="paginationStrategy" id="optionsRadios1" value="option1">
+                  Show all results
+                </label>
+              </div>
+
+              <div class="form-group form-inline">
+                <label for="pageSize">Default page size:</label>
+                <input type="number" step="1" class="form-control" id="pageSize" placeholder="12">
+                <em class="help-block">Default: WordPress page size</em>
+              </div>
+
+              <hr>
+
+              <h4>First page size strategy</h4>
+
+              <div class="radio">
+                <label>
+                  <input type="radio" name="paginationOptions" id="optionsRadios2" value="option2" checked>
+                  Use <strong>First page size</strong>
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                  Use sum of all strategies except the last one (presuming the last strategy is not a limited result set)
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                  Use max of the above strategies
+                </label>
+              </div>
+
+              <div class="form-group form-inline">
+                <label for="pageSize">First page size:</label>
+                <input type="number" step="1" class="form-control" id="firstPageSize" placeholder="12">
+                <em class="help-block">Default: Default page size</em>
+              </div>
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="strategies">
+
+              <br>
+
+              <p class="lead">Add queries here that will be combined into one result set.</p>
+              
+              <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+                <div class="panel panel-default">
+                  <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#panel2" aria-expanded="false" aria-controls="panel2">
+                    <i class="glyphicon glyphicon-chevron-down pull-right"></i>
+                    <h4 class="panel-title">
+                      <a href="#">Curated Query: <span class="display-curatedQueryName">Sticky Feature</span></a>
+                    </h4>
+                  </div>
+                  <div id="panel2" class="panel-body panel-collapse collapsed collapse">
+
+                    <div class="form-group">
+                      <label for="pageSize">Query name:</label>
+                      <input type="text" class="form-control" id="curatedQueryName" value="Sticky Feature">
+                    </div>
+
+                    <hr>
+
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Selected posts</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>123</td>
+                          <td>10 Things You Should Never Forget When Going Camping</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <br>
+
+                    <div class="form-group form-inline">
+                      <label>Search posts:</label>
+                      <input type="text" class="form-control" id="postFilter" placeholder="Search for posts">
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion" href="#panel1" aria-expanded="false" aria-controls="panel1">
+                    <i class="glyphicon glyphicon-chevron-down pull-right"></i>
+                    <h4 class="panel-title">
+                      <a href="#">Criteria Query: <span class="display-criteriaQueryName">Latest Featured posts (up to 3)</span></a>
+                    </h4>
+                  </div>
+                  <div id="panel1" class="panel-body panel-collapse collapsed collapse">
+
+                    <div class="form-group">
+                      <label for="pageSize">Query name:</label>
+                      <input type="text" class="form-control" id="criteriaQueryName" value="Latest Featured posts (up to 3)">
+                    </div>
+
+                    <hr>
+
+                    <div class="form-group form-inline">
+                      <label>Post types:</label>
+                      <input type="radio" name="postTypesFilter" id="optionsRadios2" value="option2" class="toggle-disable" checked>
+                      Any
+                      <input type="radio" name="postTypesFilter" id="optionsRadios2" value="option2" class="toggle-enable">
+                      <span class="toggle-disabled disabled">
+                        <select class="form-control" disabled>
+                          <option>Include</option>
+                          <option>Exclude</option>
+                        </select>
+                        <input type="text" class="form-control" id="postTypeFilter" placeholder="Comma-separated list" disabled>
+                      </span>
+                    </div>
+
+                    <div class="form-group form-inline">
+                      <label>Categories:</label>
+                      <input type="radio" name="categoriesFilter" id="optionsRadios2" value="option2" class="toggle-disable">
+                      Any
+                      <input type="radio" name="categoriesFilter" id="optionsRadios2" value="option2" class="toggle-enable" checked>
+                      <span class="toggle-disabled">
+                        <select class="form-control">
+                          <option selected>Include</option>
+                          <option>Exclude</option>
+                        </select>
+                        <input type="text" class="form-control" id="categoryFilter" placeholder="Comma-separated list" value="Featured">
+                      </span>
+                    </div>
+
+                    <div class="form-group form-inline">
+                      <label>Tags:</label>
+                      <input type="radio" name="tagsFilter" id="optionsRadios2" value="option2" class="toggle-disable" checked>
+                      Any
+                      <input type="radio" name="tagsFilter" id="optionsRadios2" value="option2" class="toggle-enable">
+                      <span class="toggle-disabled disabled">
+                        <select class="form-control" disabled>
+                          <option>Include</option>
+                          <option>Exclude</option>
+                        </select>
+                        <input type="text" class="form-control" id="tagFilter" placeholder="Comma-separated list" disabled>
+                      </span>
+                    </div>
+
+                    <div class="form-group form-inline">
+                      <label>Exclude posts:</label>
+                      <input type="radio" name="postsFilter" id="optionsRadios2" value="option2" class="toggle-disable" checked>
+                      None
+                      <input type="radio" name="postsFilter" id="optionsRadios2" value="option2" class="toggle-enable">
+                        <input type="text" class="form-control" id="postFilter" placeholder="Search for posts" disabled>
+                      </span>
+                    </div>
+
+                    <p class="help-block"><em>Results are sorted reverse-chronologically by default.</em></p>
+
+                    <hr>
+
+                    <div class="form-group form-inline">
+                      <label for="pageSize">Offset:</label>
+                      <input type="number" step="1" class="form-control" id="offsetSize" placeholder="0">
+                    </div>
+
+                    <div class="form-group form-inline">
+                      <label for="pageSize">Limit:</label>
+                      <input type="number" step="1" class="form-control" id="limitSize" placeholder="0" value="3">
+                      <input type="checkbox" name="limitOptions" id="optionsRadios3" value="option3">
+                      Add sum of all preceding result set "deficit" sizes
+                    </div>
+
+                    <p class="help-block"><em>"Deficit" is the number of records in a result set less than its specified limit.</em></p>
+
+                  </div>
+                </div>
+
+                <br>
+
+                <p class="text-right">
+                  <a href="#" class="btn btn-primary">+ Add query</a>
+                </p>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </form>
+
+    </div> <!-- /container -->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+    // custom things when the page is loaded
+
+    $(function() {
+
+
+      // setup collapsing
+
+      $('#accordion').collapse({
+        toggle: false
+      });
+
+      // bind text values
+
+      $('input[type="text"]').change(function(e) {
+        var self = $(this);
+
+        $('.display-' + self.attr('id')).text(self.val());
+      });
+
+    });
+
+    // setup disable toggle
+
+    $(document).on('click', '.toggle-enable', function(e) {
+      $(this).siblings('.toggle-disabled').removeClass('disabled').find('select,input').attr('disabled', null);
+    });
+
+    $(document).on('click', '.toggle-disable', function(e) {
+      $(this).siblings('.toggle-disabled').addClass('disabled').attr('disabled', 'disabled').find('select,input').attr('disabled', 'disabled');
+    });
+
+    // setup tabs
+
+    $(document).on('click', '.nav.nav-tabs a', function (e) {
+      e.preventDefault();
+      $(this).tab('show');
+    });
+
+    </script>
+  </body>
+</html>
