@@ -31,6 +31,8 @@ Combines multiple queries into one result set.
 * **Curated query:** specific posts defined in a fixed order
 * **Criteria query:** a query built by specifying specific filters, sorting, and an optional result limit
 
+_TODO: Allow for the ability to reference values on-the-fly (e.g. pass in the current category name)_
+
 #### Criteria Query Filters
 
 * **Post types:** any, include, exclude
@@ -39,6 +41,7 @@ Combines multiple queries into one result set.
 * **Post meta:** any, include, exclude
 * **Specific posts:** any, include, exclude
 * **Sorting:** default or ascending/descending for individual columns
+* **Dynamic filtering:** _(Boolean)_ indicates whether this query can have additional filters applied (for example when used on a WordPress category page, filtering results on just the category being viewed) _(default: `True`)_
 
 #### Criteria Query Options
 
@@ -55,6 +58,7 @@ Result sets are the results of executing a Query Strategy.
 #### Fields
 
 * **Strategy evaluated:** _(QueryStrategy)_ the Query Strategy executed to get the result set
+* **Dynamic filters:** _(CriteriaQueryFilterSet)_ any post types, categories, tags, etc. used to override default filter options (e.g. for use on category page to filter results by category)
 * **Evaluated offset:** _(Integer)_ the offset used for the query
 * **Number of results:** _(Integer)_ the actual number of results
 * **Deficiency of results:** _(Integer)_ the difference between the limit (max) and actual number of query results (e.g. if not a full result set because there aren't enough records)
@@ -67,6 +71,7 @@ Result sets are the results of executing a Query Strategy.
 #### Fields
 
 * **Strategies evaluated:** _(Array<QueryStrategy>)_ a list of Query Strategies that were executed
+* **Dynamic filters:** _(CriteriaQueryFilterSet)_ any post types, categories, tags, etc. used to override default filter options (e.g. for use on category page to filter results by category)
 * **Result sets:** _(Array<QueryStrategyResultSet>)_ a list of Query Strategy Result Sets
 * **Results:** _(QuerySequenceResultSet)_ the first page of a combined list of all Query Strategy Result Sets
 * **Number of pages:** _(Integer)_ the number of pages in the entire result set
