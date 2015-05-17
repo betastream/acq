@@ -18,13 +18,13 @@ Combines multiple queries into one result set.
 * **Paging strategy:**
  * Show all results (no paging)
  * Page results
- * Truncate results: use **First page size strategy** and only return one page
-* **Page size:** _(Integer)_ defaults to the WordPress page size
-* **First page size strategy:** used if paging is enabled
- * Use **First page size** option
+ * Truncate results: use _First page size strategy_ and only return one page
+* **Page size:** _(Integer)_ _(default: WordPress page size)_
+* **First page size strategy:** used if _Page results_ is enabled
+ * Use _First page size_ option
  * Sum of all strategies except the last one (presumably the last one has no limit and is used for multiple page results)
- * Max of **First page size** or sum of all strategies except the last one
-* **First page size:** _(Integer)_ defaults to the **Page size** option
+ * Max of _First page size_ or sum of all strategies except the last one
+* **First page size:** _(Integer)_ _(default: **Page size** option)_
 
 ### Query Strategy
 
@@ -46,7 +46,7 @@ Combines multiple queries into one result set.
  * Custom integer _(default: `0`)_
  * Custom integer _(default: `0`)_ plus the sum of sizes of any preceding result set sizes
  * Custom integer _(default: `0`)_ plus the sum of all preceding result set sizes
-* **Limit results:** _(Boolean)_ _(default: `False`)
+* **Limit results:** _(Boolean)_ _(default: `False`)_
 * **Limit:** _(Integer)_
  * Custom integer _(default: `0`)_
  * Custom integer _(default: `0`)_ plus the sum of sizes of any preceding result set sizes
@@ -58,11 +58,11 @@ Result sets are the results of executing a Query Strategy.
 
 #### Fields
 
-* **Strategy evaluated:** the Query Strategy executed to get the result set
-* **Evaluated offset:** the offset used for the query
-* **Number of results:** the actual number of results
-* **Deficiency of results:** the difference between the limit (max) and actual number of query results (e.g. if not a full result set because there aren't enough records)
-* **Results:** the records returned by the query
+* **Strategy evaluated:** _(QueryStrategy)_ the Query Strategy executed to get the result set
+* **Evaluated offset:** _(Integer)_ the offset used for the query
+* **Number of results:** _(Integer)_ the actual number of results
+* **Deficiency of results:** _(Integer)_ the difference between the limit (max) and actual number of query results (e.g. if not a full result set because there aren't enough records)
+* **Results:** _(QueryStrategyResultSet)_ the records returned by the query
 
 ### Query Sequence Result Set
 
@@ -70,8 +70,8 @@ Result sets are the results of executing a Query Strategy.
 
 #### Fields
 
-* **Strategies evaluated:** _(Array)_ a list of Query Strategies that were executed
-* **Result sets:** _(Array)_ a list of Query Strategy Result Sets
+* **Strategies evaluated:** _(Array<QueryStrategy>)_ a list of Query Strategies that were executed
+* **Result sets:** _(Array<QueryStrategyResultSet>)_ a list of Query Strategy Result Sets
 * **Results:** _(QuerySequenceResultSet)_ the first page of a combined list of all Query Strategy Result Sets
 * **Number of pages:** _(Integer)_ the number of pages in the entire result set
 * **Number of results:** _(Integer)_ the number of total results for all pages
