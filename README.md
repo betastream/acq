@@ -115,6 +115,17 @@ AdvancedCustomQueries::registerResultSet('Carousel', $my_sequence, $my_requireme
 
 _TODO: Need the ability for a plugin or theme to dictate query templates that need to be filled in in the admin or via some setup wizard. For example, if there is a query that requires the admin to "curate" specific posts, those need to be filled in. This would require a way to register queries with requirements that are meant for the admin configuration, and souldn't be built into the object model for building Sequences and Queries. This may mean that there is a separate object model used to pre-populate the admin UI, which references a default Sequence and Queries._
 
+### Configure Sequence Options
+
+![Configure Sequence Options](./images/screenshot-new-result-set.png)
+
+### Configure Curated Query
+
+![Configure Curated Query](./images/screenshot-new-result-set-curated-query.png)
+
+### Configure Criteria Query
+
+![Configure Criteria Query](./images/screenshot-new-result-set-criteria-query.png)
 
 
 
