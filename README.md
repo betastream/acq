@@ -79,6 +79,10 @@ Result sets are the results of executing a Query Strategy.
 
 ## Builder Object Model
 
+### Result Set Registration
+
+Your plugin or theme may require specific result sets to exist. You can register a result set by name and specify some requirements.
+
 ### Code Examples
 
 ```php
@@ -92,9 +96,13 @@ $my_query = new CriteriaStrategy();
 $my_sequence->addStrategy($my_query);
 $my_sequence->addStrategy($my_curated);
 
-// results should end with the curated posts
-$results = $my_sequence->getResults();
+// make sure there are at least 3 results when the query is updated through the admin
+$my_requirements = new Array(
+  'minResults' => 3
+);
 
+// Register defaults
+AdvancedCustomQueries::registerResultSet('Carousel', $my_sequence, $my_requirements);
 ```
 
 ## Builder Admin Interface
