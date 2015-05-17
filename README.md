@@ -26,12 +26,12 @@ Combines multiple queries into one result set.
  * Max of _First page size_ or sum of all strategies except the last one
 * **First page size:** _(Integer)_ _(default: **Page size** option)_
 
+_TODO: Allow for the ability to reference values on-the-fly (e.g. pass in the current category name)_
+
 ### Query Strategy
 
 * **Curated query:** specific posts defined in a fixed order
 * **Criteria query:** a query built by specifying specific filters, sorting, and an optional result limit
-
-_TODO: Allow for the ability to reference values on-the-fly (e.g. pass in the current category name)_
 
 #### Criteria Query Filters
 
