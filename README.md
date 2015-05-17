@@ -42,15 +42,11 @@ Combines multiple queries into one result set.
 
 #### Criteria Query Options
 
-* **Offset:** _(Integer)_
- * Custom integer _(default: `0`)_
- * Custom integer _(default: `0`)_ plus the sum of sizes of any preceding result set sizes
- * Custom integer _(default: `0`)_ plus the sum of all preceding result set sizes
-* **Limit results:** _(Boolean)_ _(default: `False`)_
-* **Limit:** _(Integer)_
- * Custom integer _(default: `0`)_
- * Custom integer _(default: `0`)_ plus the sum of sizes of any preceding result set sizes
- * Custom integer _(default: `0`)_ plus the sum of all preceding result set sizes
+* **Offset:** _(Integer)_ Specify a number of results to remove from the beginning of a result set _(default: `0`)_
+* **Limit:** _(Integer)_ Limit results by specifying a value greater than `0` _(default: `0`)_
+* **Add deficit to limit:** _(Boolean)_ Add sum of all preceding result set "deficit" sizes _(default: `False`)_
+
+_"Deficit" is the number of records in a result set less than its specified limit._
 
 ### Query Strategy Result Set
 
