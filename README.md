@@ -2,9 +2,7 @@
 
 Advanced Custom Queries for WordPress -- to give admins control over query criteria.
 
-**Work In Progress:** Currently this is only a list of requirements.
-
-Take a look at the [UI Mockups](#builder-admin-interface)
+_**Work In Progress:** Currently this is only a list of requirements. Take a look at the [UI Mockups](#builder-admin-interface)_
 
 ## Builder Features
 
